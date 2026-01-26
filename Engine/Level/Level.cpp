@@ -29,7 +29,12 @@ namespace Wanted
 		// 액터에 이벤트 흘리기.
 		for (Actor* actor : actors)
 		{
-			// Todo: 이미 BeginPlay 호출된 액터는 건너뛰기.
+			// 이미 BeginPlay 호출된 액터는 건너뛰기.
+			if (actor->HasBeganPlay())
+			{
+				continue;
+			}
+
 			actor->BeginPlay();
 		}
 	}
@@ -50,5 +55,12 @@ namespace Wanted
 		{
 			actor->Draw();
 		}
+	}
+
+	void Level::AddNewActor(Actor* newActor)
+	{
+		// Todo: 나중에 프레임 처리 고려해서 따로 추가 작업 해야함.
+		//actors.push_back(newActor);
+		actors.emplace_back(newActor);
 	}
 }

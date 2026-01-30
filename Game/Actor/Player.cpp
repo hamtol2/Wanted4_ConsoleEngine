@@ -12,6 +12,8 @@ using namespace Wanted;
 Player::Player()
 	: super('P', Vector2(5, 5), Color::Red)
 {
+	// 그리기 우선순위 높게 설정.
+	sortingOrder = 10;
 }
 
 void Player::BeginPlay()
